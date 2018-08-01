@@ -8,6 +8,11 @@ if [ -f ${ZDOTDIR}/rc/main.zsh ]; then
   source ${ZDOTDIR}/rc/main.zsh
 fi
 
+# for my functions
+if [ -f ${ZDOTDIR}/rc/func.zsh ]; then
+  source ${ZDOTDIR}/rc/func.zsh
+fi
+
 # 主に zsh 特有のオプションの設定
 if [ -f ${ZDOTDIR}/rc/option.zsh ]; then
   source ${ZDOTDIR}/rc/option.zsh
@@ -21,11 +26,6 @@ fi
 # 主にkeybindの設定
 if [ -f ${ZDOTDIR}/rc/keybind.zsh ]; then
   source ${ZDOTDIR}/rc/keybind.zsh
-fi
-
-# for my functions
-if [ -f ${ZDOTDIR}/rc/func.zsh ]; then
-  source ${ZDOTDIR}/rc/func.zsh
 fi
 
 # for visual settings

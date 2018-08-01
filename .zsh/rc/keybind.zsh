@@ -36,6 +36,6 @@ bindkey "^t" tree-fzf
 # ssh-fzf
 bindkey '^\' ssh-fzf
 # history-fzf
-# bindkey '^r' history-fzf
+bindkey '^r' history-fzf
 # ghq-fzf
 bindkey "^]" ghq-fzf
