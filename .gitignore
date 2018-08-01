@@ -1,0 +1,6 @@
+.DS_Store
+.zsh/history/
+.zsh/.zcompdump
+.zsh/plugins/enhancd
+.config/nvim/dein/
+

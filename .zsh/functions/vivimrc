@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+function vivimrc(){
+  help(){
+    echo 'usage: vivimrc <filename>'
+      echo
+      echo 'filename:'
+      echo '  init, option, keymap, visual, func, plugins, autocmd'
+  }
+
+  for file in $*
+    do
+      case $file in
+        -h|--help)
+        help
+        return
+        ;;
+    init)
+      nvim ${HOME}/dotfiles/.config/nvim/$file.vim
+      return
+      ;;
+    option|keymap|visual|func|autocmd)
+      nvim ${HOME}/dotfiles/.config/nvim/userautoload/rc/$file.vim
+      return
+      ;;
+    plugins)
+      nvim ${HOME}/dotfiles/.config/nvim/userautoload/plugins
+      return
+      ;;
+    esac
+      shift
+      done
+}
+

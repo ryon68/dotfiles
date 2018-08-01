@@ -1,0 +1,112 @@
+#======================
+# plugin settings file
+#======================
+
+#----------
+# dein
+#----------
+[[plugins]] # plugin管理
+repo = 'Shougo/dein.vim'
+
+#----------
+# vimproc
+#----------
+[[plugins]] # 非同期処理
+# name = 'vimproc'
+repo = 'Shougo/vimproc.vim'
+build = 'make'
+
+#-----------
+# devicons
+#-----------
+[[plugins]] # icons
+repo = 'ryanoasis/vim-devicons'
+hook_add = 'source ~/.config/nvim/userautoload/plugins/devicons.vim'
+
+#-----------
+# airline
+#-----------
+[[plugins]] # airline
+repo = 'vim-airline/vim-airline'
+depends = ['vim-ailine-themes']
+# depends = ['tagbar', 'vim-fugitive', 'vim-gitgutter']
+hook_add = 'source ${HOME}/.config/nvim/userautoload/plugins/airline.vim'
+[[plugins]] # airline-themes
+repo = 'vim-airline/vim-airline-themes'
+depends = 'vim-airline'
+[[plugins]] # for git
+repo = 'tpope/vim-fugitive'
+[[plugins]] # for git
+repo = 'airblade/vim-gitgutter'
+
+#----------
+# neoterm
+#----------
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = 'source ~/.config/nvim/userautoload/plugins/neoterm.vim'
+
+#-----------
+# snippets
+#-----------
+[[plugins]] # スニペット集
+repo = 'Shougo/neosnippet-snippets'
+
+#-------
+# fzf
+#-------
+[[plugins]] # fzf
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
+hook_add = 'source ~/.config/nvim/userautoload/plugins/fzf.vim'
+
+#-----------
+# template
+#-----------
+[[plugins]] # template
+repo = 'mattn/sonictemplate-vim'
+hook_add = '''
+let g:sonictemplate_vim_template_dir = '~/.config/nvim/userautoload/templates'
+nno <Leader>s :Template<Space>
+'''
+
+#------------
+# polyglot
+#------------
+[[plugins]] # polyglot
+repo  = 'sheerun/vim-polyglot'
+
+#--------------
+# colorscheme
+#--------------
+[[plugins]]
+repo = 'tomasr/molokai'
+[[plugins]]
+repo = 'reedes/vim-colors-pencil'
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+[[plugins]]
+repo = 'aereal/vim-colors-japanesque'
+[[plugins]]
+repo = 'nightsense/snow'
+
+#-------------------------------------------
+
+[[plugins]] # easy-align
+repo = 'junegunn/vim-easy-align'
+hook_add= '''
+vmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+'''
+
+[[plugins]] # surround
+repo = "tpope/vim-surround"
+[[plugins]] # repeat
+repo  = 'tpope/vim-repeat'
+

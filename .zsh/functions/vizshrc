@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+function vizshrc(){
+  help(){
+    echo 'usage: vizshrc <filename>'
+      echo
+      echo 'filename:'
+      echo ' env, zshrc, option, main, func, keybind, alias, visual'
+  } 
+
+  for file in $*
+    do
+      case $file in
+        -h|--help)
+        help
+        return
+        ;;
+    zshrc)
+      nvim ${HOME}/dotfiles/.zsh/.zshrc
+      return
+      ;;
+    option|path|func|bindkey|alias|visual)
+      nvim ${HOME}/dotfiles/.zsh/rc/$file.zsh
+      return
+      ;;
+    env)
+      nvim ${HOME}/dotfiles/.zshenv
+      return
+      ;;
+    esac
+      shift
+      done
+}
+

@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+function vitoml(){
+  help(){
+    echo 'usage: toml <filename>'
+    echo
+    echo 'filename:'
+    echo '  plugins, python, lazy'
+  } 
+
+  for file in $*
+  do
+    case $file in
+      -h|--help)
+        help
+        return
+        ;;
+      *)
+        nvim ~/.config/nvim/userautoload/toml/$file.toml
+        ;;
+    esac
+    shift
+  done
+}
+

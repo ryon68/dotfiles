@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+function g4login(){
+  help(){
+    echo 'usage : g4login <year>'
+    echo 'year  : 2017, 2018'
+  }
+
+  for year in $*
+  do 
+    case $year in
+      -h|--help)
+        help
+        return
+        ;;
+      *)
+        # export G4WORKDIR=$HOME/$year/Geant4
+        cd $HOME/$year/Geant4
+        ;;
+    esac
+    shift
+  done
+}
+
