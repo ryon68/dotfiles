@@ -1,8 +1,0 @@
-#compdef g4login
-
-_g4login(){
-  _values \
-    'year' \
-    '2017' \
-    '2018'
-}

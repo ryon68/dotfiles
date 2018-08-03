@@ -70,7 +70,7 @@ hook_add = 'source ~/.config/nvim/userautoload/plugins/fzf.vim'
 [[plugins]] # template
 repo = 'mattn/sonictemplate-vim'
 hook_add = '''
-let g:sonictemplate_vim_template_dir = '~/.config/nvim/userautoload/templates'
+let g:sonictemplate_vim_template_dir = '~/.config/nvim/templates'
 nno <Leader>s :Template<Space>
 '''
 
@@ -90,7 +90,7 @@ repo = 'reedes/vim-colors-pencil'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 [[plugins]]
-repo = 'altercation/vim-colors-solarized'
+repo = 'lifepillar/vim-solarized8'
 [[plugins]]
 repo = 'aereal/vim-colors-japanesque'
 [[plugins]]

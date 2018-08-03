@@ -1,1 +1,0 @@
-echo "~/.fzf.`basename $SHELL`"

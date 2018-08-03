@@ -16,6 +16,7 @@ let g:quickrun_config['_'] = {
       \ 'outputter/error/error'   : 'quickfix',
       \ 'outputter/buffer/close_on_empty' : 1,
       \ }
+      " \ "outputter/buffer/split" : "vertical 30sp",
 
 let g:quickrun_config.cpp = {
       \   'command': 'g++',

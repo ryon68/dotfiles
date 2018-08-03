@@ -3,7 +3,7 @@
 "============
 
 "set snippet file dir
-let g:neosnippet#snippets_directory='$HOME/.config/nvim/userautoload/snippets'
+let g:neosnippet#snippets_directory='$HOME/.config/nvim/snippets'
 
 " For conceal markers.
 if has('conceal')

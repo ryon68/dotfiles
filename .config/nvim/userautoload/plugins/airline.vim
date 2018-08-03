@@ -5,6 +5,7 @@
 " Powerline系フォントを利用する
 let g:airline_powerline_fonts = 1
 
+" let g:airline_theme='deus'
 let g:airline#extensions#tagbar#enabled = 1
 
 " tabline

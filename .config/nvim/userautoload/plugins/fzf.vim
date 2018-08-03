@@ -43,7 +43,7 @@ com! -bang -nargs=* Rg
       \   <bang>0 ? fzf#vim#with_preview({'options': '-e'})
       \           : fzf#vim#with_preview('right:50%:hidden', '?')
       \   <bang>)
-nno [Fzf]r :<C-u>Rg
+nno [Fzf]r :<C-u>Rg<Space>
 " rg word
 nno <silent>[Fzf]w *"zyiw:<C-u>Rg <C-r>z<CR>
 " command history

@@ -14,5 +14,11 @@ source "${HOME}/.fzf/shell/key-bindings.zsh"
 
 # options
 # -------
-export FZF_DEFAULT_OPTS='--height 40% --reverse --border --ansi --multi'
+# select-1 候補が1つのときに自動で選択
+# exit-0   選択候補がないとき自動で終了
+export FZF_ALT_C_OPTS="--select-1 --exit-0"
+# コマンドが長過ぎるとき?でプレビュー
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse --ansi --multi'
 export FZF_DEFAULT_COMMAND='rg --files -hidden --follow --glob'

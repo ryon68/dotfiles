@@ -6,7 +6,7 @@ let g:neoterm_autoscroll = 1
 " let g:neoterm_default_mod='vertical'
 " 横分割する
 let g:neoterm_default_mod='belowright'
-let g:neoterm_size =  '20'
+let g:neoterm_size =  '15'
 
 "
 let g:neoterm_keep_term_open = 0
@@ -36,3 +36,4 @@ tno <silent><C-d> <C-\><C-n>:Tclose<CR>
 tno <silent><C-g> <C-\><C-n>:Tclose<CR>
 " nno <silent><C-c> <C-\><C-n>:Tclose<CR>
 
+tno <silent><C-u> <C-\><C-n><C-w>k

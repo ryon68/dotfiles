@@ -8,7 +8,8 @@ fun! s:goyo_enter()
   setl noshowmode noshowcmd
   setl scrolloff=999
   setl background=light
-  colors snow
+  colors solarized8
+  " colors snow
   " colors pencil
   Limelight 0.3
 endf

@@ -50,10 +50,10 @@ else
   endf
 
   call s:load_rc('option')
-  call s:load_rc('keymap')
-  call s:load_rc('visual')
   call s:load_rc('func')
   call s:load_rc('autocmd')
+  call s:load_rc('keymap')
+  call s:load_rc('visual')
 endif
 "--------------------------------------------------
 " dein settings
