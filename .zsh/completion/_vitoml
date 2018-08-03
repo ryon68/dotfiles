@@ -1,0 +1,9 @@
+#compdef vitoml
+
+_vitoml(){
+  _values \
+  'filename' \
+  'plugins' \
+  'python' \
+  'lazy'
+}

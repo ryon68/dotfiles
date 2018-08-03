@@ -1,0 +1,14 @@
+#compdef vizshrc
+
+_vizshrc(){
+  _values \
+  'filename' \
+  'env' \
+  'zshrc' \
+  'main' \
+  'option' \
+  'func' \
+  'keybind' \
+  'alias' \
+  'visual'
+}

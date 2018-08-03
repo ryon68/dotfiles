@@ -1,0 +1,6 @@
+.zcompdump
+.zshrc.org
+.zshrc.zwc
+history/
+tmp/
+zshenv/
