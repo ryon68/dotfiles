@@ -37,11 +37,12 @@ let g:python3_host_prog = '/opt/local/bin/python3.6'
 "--------------------------------------------------
 let s:rc_dir = '$CONFIG/nvim/userautoload/rc'
 
+" load devine files
 if has('nvim')
   runtime! userautoload/rc/*.vim
   "execute 'source $HOME/.config/nvim/userautoload/rc/option.vim'
-  " load devine files
 else
+  " set rtp+=$HOME/.config/nvim/userautoload/rc/
   fun! s:load_rc(file)
     let s:rc_file = expand(s:rc_dir . '/' . a:file . '.vim')
     if filereadable(s:rc_file)
