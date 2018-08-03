@@ -21,9 +21,7 @@ echo "link .config directory dotfiles"
 cd "${DOT_DIRECTORY}"/"${DOT_CONFIG_DIRECTORY}"
 for f in ??*
 do
-  #./の2文字を削除するためにfile:2としている
   ln -snfv "${DOT_DIRECTORY}"/"${DOT_CONFIG_DIRECTORY}"/"${f}" "${HOME}"/"${DOT_CONFIG_DIRECTORY}"/"${f}"
-  # echo "ln -snfv "${DOT_DIRECTORY}"/"${DOT_CONFIG_DIRECTORY}"/"${f}" "${HOME}"/"${DOT_CONFIG_DIRECTORY}"/"${f}""
 done
 
 echo "linked dotfiles complete!"

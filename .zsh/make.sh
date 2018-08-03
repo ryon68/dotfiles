@@ -15,10 +15,10 @@ for src in $@; do
 command ls ${ZDOTDIR}/$src/*.zsh   | sort | xargs cat >! ${ZDOTDIR}/."$src"
 # fi
 
-done
-
 zsh -n ${ZDOTDIR}/."$src" # 文法チェック
 zsh -c "zcompile ${ZDOTDIR}/."$src" " # コンパイル
 
+done
+
 # } zshenv zshrc zprofile
-} zshrc
+} zshenv zshrc

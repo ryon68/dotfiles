@@ -33,7 +33,7 @@ nno <silent> [neoterm]f :TREPLSendFile<CR>
 tno <silent> <ESC> <C-\><C-n>
 " exit terminal
 tno <silent><C-d> <C-\><C-n>:Tclose<CR>
-tno <silent><C-g> <C-\><C-n>:Tclose<CR>
+" tno <silent><C-g> <C-\><C-n>:Tclose<CR>
 " nno <silent><C-c> <C-\><C-n>:Tclose<CR>
 
-tno <silent><C-u> <C-\><C-n><C-w>k
+tno <silent><C-x> <C-\><C-n><C-w>k
