@@ -15,8 +15,8 @@ path=( \
   )
 
 fpath=( \
-  /${ZDOTDIR}/functions(N-/) \
-  /${ZDOTDIR}/completion(N-/) \
+  ${ZDOTDIR}/functions(N-/) \
+  ${ZDOTDIR}/completion(N-/) \
   $fpath \
   )
 

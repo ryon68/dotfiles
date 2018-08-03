@@ -11,9 +11,9 @@ for src in $@; do
 [ ! -e ${ZDOTDIR}/$src ] && touch ${ZDOTDIR}/."$src"
 : >! ."$src"
 
-# if [ -e ${ZDOTDIR}/$src/*.zsh ]; then
+if [ -n "(ls ${ZDOTDIR}/$src/)" ]; then
 command ls ${ZDOTDIR}/$src/*.zsh   | sort | xargs cat >! ${ZDOTDIR}/."$src"
-# fi
+fi
 
 zsh -n ${ZDOTDIR}/."$src" # 文法チェック
 zsh -c "zcompile ${ZDOTDIR}/."$src" " # コンパイル
@@ -21,4 +21,5 @@ zsh -c "zcompile ${ZDOTDIR}/."$src" " # コンパイル
 done
 
 # } zshenv zshrc zprofile
-} zshenv zshrc
+# } zshenv zshrc
+} zshrc
