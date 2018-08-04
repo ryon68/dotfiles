@@ -71,7 +71,7 @@ zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 #補完でカラーを使用する
 # autoload colors
-[ -n ${LS_COLORS} ] && zstyle ':completion:*' list-colors "${LS_COLORS}"
+[ -n $LS_COLORS ] && zstyle ':completion:*' list-colors "$LS_COLORS"
 
 #kill の候補にも色付き表示
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([%0-9]#)*=0=01;31'

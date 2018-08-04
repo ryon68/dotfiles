@@ -15,15 +15,13 @@ case ${UID} in
     ;;
 esac
 if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
-  # PROMPT_PATH="%{${fg[cyan]}%}%(5~,.../%3~,%~)%{${reset_color}%}"
   PROMPT_PATH="${fg[cyan]}%~${reset_color}"
 else # local
-  # PROMPT_PATH="%{${fg[yellow}%}%(5~,.../%3~,%~)%{${reset_color}%}"
   PROMPT_PATH="${fg[yellow]}%~${reset_color}"
 fi
 
-# PROMPT="[%{${fg[yellow]}%}%~%{${reset_color}%}]
-# %# "
+# PROMPT="[${PROMPT_USER}@${PROMPT_PATH}] 
+# > "
 PROMPT="[${PROMPT_PATH}] 
 ${PROMPT_USER} "
 

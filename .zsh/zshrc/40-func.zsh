@@ -15,79 +15,69 @@ function ranger-cd {
   }
   # zle -N ranger-cd
 
-# C-^ move parent directory
-function cdup() {
-  echo
-  cd ..
-  zle reset-prompt
-}
-zle -N cdup
+  # C-^ move parent directory
+  function cdup() {
+    echo
+    cd ..
+    zle reset-prompt
+  }
+  zle -N cdup
 
-# peco history
-function peco-history-selection() {
-  BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
-  CURSOR=$#BUFFER
-  # zle accept-line
-  # zle clear-screen
-  zle reset-prompt
-}
-zle -N peco-history-selection
+  # peco history
+  function peco-history-selection() {
+    BUFFER=`history -n 1 | tail -r  | awk '!a[$0]++' | peco`
+    CURSOR=$#BUFFER
+    # zle accept-line
+    # zle clear-screen
+    zle reset-prompt
+  }
+  zle -N peco-history-selection
 
-#-------
-# fzf
-#-------
-# tree-fzf
-function tree-fzf() {
-  local SELECTED_FILE=$(tree --charset=o -f | fzf --query "$LBUFFER" | tr -d '\||`|-' | xargs echo)
+  #awk
+  awk_ailas() {
+    autoload -Uz is-at-least
+    if ! is-at-least 5; then
+      return 1
+    fi
 
-  if [ "$SELECTED_FILE" != "" ]; then
-    BUFFER="$EDITOR $SELECTED_FILE"
-    zle accept-line
-  fi
+    local -a opts
+    local    field=0 pattern file
 
-  zle reset-prompt
-}
-zle -N tree-fzf
+    if (( $#==0 )); then
+      echo "usage: awk [-option] [\"pattern\"] [file]"
+      return 1
+    fi
+    while (( $# > 0 ))
+      # while  [ -n $1 ] 
+    do
+      case "$1" in
+        -*|--*)
+          opts+=( "$1" )
+          ;;
+        *)
+          if [[ $1 =~ ^[0-9]+$ ]]; then
+            field="$1"
+            # echo $field
+          elif [ -f $1 ]; then
+            file="$1"
+          else
+            pattern="$1"
+            # echo $pattern
+          fi
+          ;;
+      esac
+      shift
+    done
 
-# ssh-fzf
-function ssh-fzf () {
-  local selected_host=$(rg HOST ~/.ssh/config | cut -b 6- | fzf --query "$LBUFFER")
+    # echo "awk ${=opts[@]} "$pattern{print $"$field"}" $file"
 
-  if [ -n "$selected_host" ]; then
-    BUFFER="ssh ${selected_host}"
-    zle accept-line
-  fi
-  zle reset-prompt
-}
-zle -N ssh-fzf
+    # if ! awk ${=opts[@]} "$"$field" ~ $pattern{print $"$field"}" $file 2>/dev/null; then
+    # if ! awk ${=opts[@]} "$"$field" ~ \"$pattern\"{print}" $file 2>/dev/null; then
+    if ! awk ${=opts[@]} "$pattern{print $"$field"}" $file 2>/dev/null; then
+      printf "alias: syntax error\n"
+      return 1
+    fi
+  }
+  zle -N awk_ailas
 
-# history-fzf
-function history-fzf() {
-  local tac
-
-  if which tac > /dev/null; then
-    tac="tac"
-  else
-    tac="tail -r"
-  fi
-
-  BUFFER=$(history -n 1 | eval $tac | fzf --query "$LBUFFER")
-  CURSOR=$#BUFFER
-
-  zle reset-prompt
-}
-zle -N history-fzf
-
-# ghq-fzf
-function ghq-fzf() {
-  local selected_dir=$(ghq list | fzf --query="$LBUFFER")
-
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd $(ghq root)/${selected_dir}"
-    zle accept-line
-  fi
-
-  zle reset-prompt
-}
-zle -N ghq-fzf
-#}}}
+  #}}}

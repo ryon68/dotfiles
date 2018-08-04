@@ -5,50 +5,39 @@
 
 # zsh alias
 alias szsh='source ~/.zsh/.zshrc'
-# alias czsh='zcompile ~/.zsh/.zshrc'
 alias relogin='exec zsh -l'
 
-# sudo alias
+# sudoでaliasを使用可
 alias sudo='sudo '
 
 # update locate
 alias updatedb='sudo /usr/libexec/locate.updatedb'
 
-# ls alias
+# multi mv
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
+
+# list alias
 #{{{
 # ls color setting for OS 
 case ${OSTYPE} in
   darwin*)
     # Mac用の設定
     export CLICOLOR='true'
-    alias ls='ls -G -F -h'
+    alias ls='ls -G'
     ;;
   linux*)
     # Linux用の設定
-    alias ls='ls -F --color=auto'
+    alias ls='ls -G --color=auto'
     ;;
 esac
-alias la='ls -ax'
-alias ll='ls -alhp'
-alias l='ls -Bx'
+alias la='ls -AF'
+alias lla='ls -lAF'
+alias ll='ls -lF'
+alias lr='ls -lR'
 #}}}
 
-# global alias
-if (( $+commands[rg] )); then
-  alias -g G='| rg '
-else
-  alias -g G='| grep '
-fi
-alias -g L='| less -R'
-alias -g P='| peco '
-alias -g F='| fzf '
-alias -g X='| xargs'
-alias -g S="| sort"
-# alias -g N=" >/dev/null 2>&1"
-# alias -g N1=" >/dev/null"
-# alias -g N2=" 2>/dev/null"
-# alias -g VI='| xargs -o vim'
-
+# common aliases
 # exit
 alias E="exit"
 # copy move 確認、表示、ディレクトリ
@@ -60,14 +49,76 @@ alias mkdir='mkdir -p'
 alias ssh='ssh -Y'
 # dirs 表示オプション
 alias dirs='dirs -v'
+alias grep='grep --color=auto'
+alias du='du -hsc'
+alias df='df -h'
+# tree 隠しファイル
+alias tree='tree -a'
+
+# use colordiff if exist
+if (( $+commands[colordiff] )); then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi
+
+# vim alias
+alias vi=$EDITOR
+alias vimdiff="$EDITOR -d"
+alias ex="$EDITOR -e"
+alias exim="$EDITOR -E"
+alias evim="$EDITOR -y"
+alias view="$EDITOR -R"
+alias rvim="$EDITOR -Z"
+alias rview="$EDITOR -RZ"
+alias gvim=mvim
+alias gview="mvim -R"
+alias gvimdiff="mvim -d"
+alias gex="mvim -e"
+alias gexim="mvim -E"
+alias rgvim="mvim -Z"
+alias rgview="mvim -RZ"
+alias novim='vim -N -u NONE -i NONE'
+
+# global alias
+if (( $+commands[rg] )); then
+  alias -g G='| rg '
+else
+  alias -g G='| grep '
+fi
+alias -g G='| multi_grep '
+alias -g L='| less -R'
+alias -g P='| peco '
+alias -g F='| fzf '
+alias -g X='| xargs'
+alias -g SO='| sort'
+alias -g SE='| sed'
+# alias -g A='| awk'
+alias -g V='| ${EDITOR} -'
+alias -g VI='| xargs -o ${EDITOR}'
+alias -g N=" >/dev/null 2>&1"
+alias -g N1=" >/dev/null"
+alias -g N2=" 2>/dev/null"
+
+multi_grep() {
+  local std_in="$(cat <&0)" word
+
+  for word in "$@"
+  do
+    std_in="$(echo "${std_in}" | command grep "$word")"
+  done
+
+  echo "${std_in}"
+}
+
+# alias awk=awk_ailas
+alias -g A='| awk_ailas'
+# alias -g A='| awk'
 
 # ripgrep dotfiles
 if (( $+commands[rg] )); then
   alias rg='rg -uu '
 fi
-
-# tree 隠しファイル
-alias tree='tree -a'
 
 # remove to Trash
 if (( $+commands[rmtrash] )); then
@@ -77,32 +128,6 @@ else
 fi
 # remove to trash
 alias remove='\rm -irv'
-
-# colordiff
-if (( $+commands[colordiff] )); then
-  alias diff='colordiff -u'
-else
-  alias diff='diff -u'
-fi
-
-# colordiff
-
-# vim alias
-alias vi=${EDITOR}
-alias vimdiff="${EDITOR} -d"
-alias ex="${EDITOR} -e"
-alias exim="${EDITOR} -E"
-alias evim="${EDITOR} -y"
-alias view="${EDITOR} -R"
-alias rvim="${EDITOR} -Z"
-alias rview="${EDITOR} -RZ"
-alias gvim=mvim
-alias gview="mvim -R"
-alias gvimdiff="mvim -d"
-alias gex="mvim -e"
-alias gexim="mvim -E"
-alias rgvim="mvim -Z"
-alias rgview="mvim -RZ"
 
 # root
 # root not display logo
@@ -115,6 +140,25 @@ if (( $+commands[root] )); then
   if (( $+commands[root6] )); then 
     alias root6='root6 -l'
   fi
+fi
+
+# if (( $+commands[tmux] )); then
+  # alias tmux='tmux -2'
+  # alias tmls='tmux ls'
+  # alias tmat='tmux a -t'
+  # alias tmns='tmux new-session -s'
+# fi
+
+if (( $+commands[git] )); then
+    alias ga='git add'
+    alias gaa='git add -A'
+    alias gc='git commit'
+    alias gcm='git commit -m'
+    alias gcma='git commit -ma'
+    alias gp='git push'
+    alias gst='git status'
+    alias gd='git diff'
+    alias gco='git checkout'
 fi
 
 # lldb

@@ -48,3 +48,5 @@ alias E='exit'
 alias vim='reattach-to-user-namespace vim'
 alias vi='vim'
 alias ssh='TERM=xterm ssh'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

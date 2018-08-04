@@ -59,7 +59,7 @@ ono <silent><C-f>m <c-c>:<c-u>call fzf#vim#maps('o', 0)<cr>
 " search helps
 nno <silent>[Fzf]h :<C-u>Helptags<CR>
 " locate
-nno <silent>[Fzf]l :<C-u>Locate<Space>
+nno [Fzf]l :<C-u>Locate<Space>
 " git
 nno <silent>[Fzf]g :<C-u>GFiles<CR>
 nno <silent>[Fzf]G :<C-u>GFiles?<CR>

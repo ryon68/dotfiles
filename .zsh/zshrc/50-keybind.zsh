@@ -29,6 +29,7 @@ bindkey '^S' history-incremental-pattern-search-forward
 bindkey  -s '^o' 'ranger-cd\n'
 ## C-^ move parent directory
 bindkey '^^' cdup
+
 # peco-history
 bindkey '^H' peco-history-selection
 # fzf

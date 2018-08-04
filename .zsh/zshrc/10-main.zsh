@@ -10,13 +10,13 @@ path=( \
   /opt/local/sbin(N-/) \
   /usr/local/bin(N-/) \
   /usr/local/sbin(N-/) \
-  ${HOME}/local/bin(N-/) \
+  $HOME/local/bin(N-/) \
   $path \
   )
 
 fpath=( \
-  ${ZDOTDIR}/functions(N-/) \
-  ${ZDOTDIR}/completion(N-/) \
+  $ZDOTDIR/functions(N-/) \
+  $ZDOTDIR/completion(N-/) \
   $fpath \
   )
 
@@ -44,24 +44,24 @@ export LANGAGE=ja_JP.UTF-8
 export LANG=$LANGAGE
 
 # History
-export HISTFILE=${HOME}/.zsh/history/.zsh_history
+export HISTFILE=$HOME/.zsh/history/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=$HISTSIZE
 # ヒストリの一覧を読みやすい形に変更
 export HISTTIMEFORMAT="[%Y/%M/%D %H:%M:%S] "
 
-# # fzf
-[ -f ${HOME}/.fzf.`basename $SHELL` ] && source ${HOME}/.fzf.`basename $SHELL`
+# fzf
+# [ -f ${HOME}/.fzf.`basename $SHELL` ] && source ${HOME}/.fzf.`basename $SHELL`
 
 # EDITOR nvim/vim
 if [ -x `which nvim` ]; then
   export EDITOR=nvim
   # nvim config
-  export XDG_CONFIG_HOME=${HOME}/.config
+  export XDG_CONFIG_HOME=$HOME/.config
 else
   export EDITOR=vim
 fi
-export VISUAL=${EDITOR}
+export VISUAL=$EDITOR
 
 # PAGER
 export PAGER=less
@@ -87,7 +87,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 
-source ${HOME}/local/rw05/.radware.bashrc
+source $HOME/local/rw05/.radware.bashrc
 
 # ROOT source setting file
 source `root-config --prefix`/bin/thisroot.sh
@@ -99,8 +99,8 @@ source /opt/local/bin/geant4.sh
 source /opt/local/share/Geant4/Geant4-10.3.3/geant4make/geant4make.sh
 
 # shell integrarion
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-source ${HOME}/.iterm2_shell_integration.`basename $SHELL`
+test -e "$HOME/.iterm2_shell_integration.zsh" && source "$HOME/.iterm2_shell_integration.zsh"
+source $HOME/.iterm2_shell_integration.`basename $SHELL`
 
 # export DYLD_LIBRARY_PATH=/opt/local/lib:$DYLD_LIBRARY_PATH
 
@@ -108,7 +108,7 @@ source ${HOME}/.iterm2_shell_integration.`basename $SHELL`
 if (( $+commands[python] )); then
   path+=(/opt/local/Library/Frameworks/Python.framework/Versions/3.6/bin(N-/))
   # PythonからROOTのライブラリへのパス
-  export PYTHONPATH=${ROOTSYS}/lib:$PYTHONPATH
+  export PYTHONPATH=$ROOTSYS/lib:$PYTHONPATH
   # export PYTHONPATH=/opt/local/Library/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages:${PYTHONPATH}
 fi
 
