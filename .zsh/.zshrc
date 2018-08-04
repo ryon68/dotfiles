@@ -15,9 +15,11 @@ done
 # fzf
 [ -f ${HOME}/.fzf.`basename $SHELL` ] && source ${HOME}/.fzf.`basename $SHELL`
 
+# enhancd
+[ -f ${HOME}/.zsh/plugin/enhancd/init.sh ] && source ${HOME}/.zsh/plugin/enhancd/init.sh
+
+
 # if (which zprof > /dev/null 2>&1) ;then
 #   zprof | less
 # fi
 
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
