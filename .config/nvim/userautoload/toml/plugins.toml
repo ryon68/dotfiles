@@ -101,7 +101,7 @@ repo = 'nightsense/snow'
 [[plugins]] # easy-align
 repo = 'junegunn/vim-easy-align'
 hook_add= '''
-vmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 '''
 

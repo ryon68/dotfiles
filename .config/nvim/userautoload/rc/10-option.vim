@@ -19,7 +19,7 @@ set gdefault    " 置換の時 g オプションをデフォルトで有効に�
 set showmatch   " 対応する括弧を強調表示
 set matchtime=2 " 対応する括弧の強調表示時間を設定する
 " source $VIMRUNTIME/macros/matchit.vim " Vimの「%」を拡張する
-runtime /opt/local/share/nvim/runtime/macros/matchit.vim
+" runtime /opt/local/share/nvim/runtime/macros/matchit.vim
 "}}}
 
 "{{{ Edit
@@ -70,7 +70,7 @@ if has('persistent_undo')
 endif
 
 " Completion
-set wildmenu wildmode=list:longest,full " コマンドモードの補完
+set wildmenu wildignorecase wildmode=list,full " コマンドモードの補完
 set history=5000                        " 保存するコマンド履歴の数
 " preview
 " set cot=menuone

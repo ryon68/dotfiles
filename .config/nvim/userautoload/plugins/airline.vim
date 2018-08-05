@@ -32,13 +32,18 @@ let g:airline#extensions#tabline#buffer_idx_format = {
 "       \ [ 'x', 'y', 'z', 'error', 'warning']
 "       \ ]
 let g:airline_mode_map = {
-      \'n' : 'N',
-      \'i' : 'I',
-      \'R' : 'R',
-      \'c' : 'C',
-      \'v' : 'v',
-      \'V' : 'V',
-      \'' : 'V-B',
+      \ '__' : '------',
+      \ 'n'  : 'N',
+      \ 'i'  : 'I',
+      \ 'R'  : 'R',
+      \ 'v'  : 'V',
+      \ 'V'  : 'V-L',
+      \ 'c'  : 'C',
+      \ '' : 'V-B',
+      \ 's'  : 'S',
+      \ 'S'  : 'S-L',
+      \ '' : 'S-B',
+      \ 't'  : 'T',
       \}
 
 " let g:airline#extensions#branch#enabled = 0

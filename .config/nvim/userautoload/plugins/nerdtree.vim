@@ -11,6 +11,7 @@ let g:NERDTreeDirArrowExpandable  = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
 
 let g:NERDTreeLimitedSyntax = 1
+" NERDTress File highlighting
 
 " nno <silent><C-n> :<C-u>NERDTreeToggle<CR>
 nno <silent><C-n> :<C-u>NERDTreeTabsToggle<CR>

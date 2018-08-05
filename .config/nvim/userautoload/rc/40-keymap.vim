@@ -119,7 +119,7 @@ nno <silent>bl :<C-u>buffers<CR>
 nno <silent><Leader>e :Ve<CR>
 
 " highlight search
-nno<silent>* "zyiw:let @/ = '\<' . @z . '\>'<CR>:set hlsearch<CR>
+nno <silent>* "zyiw:let @/ = '\<' . @z . '\>'<CR>:call histadd('/',@z)<CR>:set hlsearch<CR>
 nmap # *;%s;<C-r>z;
 vno <silent> * mz:call <SID>set_vsearch()<CR>:set hlsearch<CR>`z
 " xno * :<C-u>call <SID>set_vsearch()<CR>/<C-r>/<CR>
@@ -127,6 +127,7 @@ vmap # *;%s;<C-r>z;
 function! s:set_vsearch()
   silent normal gv"zy
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
+  call histadd('/',@z)
 endfunction
 nno <silent><ESC><ESC><ESC> :<C-u>nohlsearch<CR><Esc><C-l>
 nno <silent><C-l> :<C-u>nohlsearch<CR><Esc><C-l>

@@ -24,7 +24,7 @@ fun! Dark(scheme)
     "}}}
   elseif a:scheme == 'solarized'
     "--- solarized
-    colors solarized8
+    colors solarized8_dark
   elseif a:scheme == 'iceberg'
     "--- iceberg
     colors iceberg
@@ -49,7 +49,7 @@ fun! Light(scheme)
     " "}}}
   elseif a:scheme == 'solarized'
     "--- solarized
-    colors solarized8
+    colors solarized8_light
   elseif a:scheme == 'snow'
     "--- snow
     colors snow
@@ -60,30 +60,30 @@ fun! SelectColorScheme(background,scheme)
   if a:background == 'dark'
     if a:scheme == 'molokai'
       autocmd VimEnter * nested call Dark('molokai')
-    let g:airline_theme = 'deus'
+      let g:airline_theme = 'deus'
     elseif a:scheme == 'solarized'
       autocmd VimEnter * nested call Dark('solarized')
-    let g:airline_theme = 'papercolor'
+      let g:airline_theme = 'papercolor'
     elseif a:scheme == 'iceberg'
       autocmd VimEnter * nested call Dark('iceberg')
-    let g:airline_theme = 'papercolor'
+      let g:airline_theme = 'papercolor'
     elseif a:scheme == 'japanesque'
       autocmd VimEnter * nested call Dark('japanesque')
-    let g:airline_theme = 'bubblegum'
+      let g:airline_theme = 'bubblegum'
     elseif a:scheme == 'snow'
       autocmd VimEnter * nested call Dark('snow')
-    let g:airline_theme = 'papercolor'
+      let g:airline_theme = 'papercolor'
     endif
   elseif a:background == 'light'
     if a:scheme == 'pencil'
       autocmd VimEnter * nested call Light('pencil')
-    let g:airline_theme = 'papercolor'
+      let g:airline_theme = 'papercolor'
     elseif a:scheme == 'solarized'
       autocmd VimEnter * nested call Light('solarized')
-    let g:airline_theme = 'papercolor'
+      let g:airline_theme = 'papercolor'
     elseif a:scheme == 'snow'
       autocmd VimEnter * nested call Light('snow')
-    let g:airline_theme = 'papercolor'
+      let g:airline_theme = 'papercolor'
     endif
   endif
 endf

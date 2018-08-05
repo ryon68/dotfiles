@@ -9,8 +9,8 @@
 if = '''has('nvim')'''
 repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
-hook_add = 'source ${HOME}/.config/nvim/userautoload/plugins/denite_add.vim'
-hook_post_source = 'source ${HOME}/.config/nvim/userautoload/plugins/denite_source.vim'
+hook_add = 'source ~/.config/nvim/userautoload/plugins/denite_add.vim'
+hook_post_source = 'source ~/.config/nvim/userautoload/plugins/denite_source.vim'
 [[plugins]] # Plugin to easily access Most Recently Used (MRU) files
 repo = 'Shougo/neomru.vim'
 on_source = 'denite.nvim'
@@ -18,13 +18,11 @@ on_path = '.*'
 # hook_add = '''
 # let g:neomru#follow_links = 1
 # '''
-[[plugins]] # Yank
-repo = 'Shougo/neoyank.vim'
+# [[plugins]] # Yank
+# repo = 'Shougo/neoyank.vim'
 # [[plugins]]
 # repo = 'nixprime/cpsm'
 # build = 'env PY3=ON ./install.sh'
-# [[plugins]] # neoyank
-# repo = 'Shougo/neoyank.vim'
 
 #--------------
 # 補完
@@ -32,7 +30,7 @@ repo = 'Shougo/neoyank.vim'
 [[plugins]] # deoplete
 if = '''has('nvim')'''
 repo = 'Shougo/deoplete.nvim'
-on_i = 1
+on_event = 'InsertEnter'
 hook_source = '''
 source ~/.config/nvim/userautoload/plugins/deoplete.vim
 '''
@@ -42,8 +40,8 @@ let g:deoplete#omni_patterns = {}
 [[plugins]] # for c,cpp
 repo = 'zchee/deoplete-clang'
 depends = 'deoplete.nvim'
-on_ft = ['c', 'c11', 'cpp', 'cc', 'cmake', 'C']
-on_i = 1
+on_ft = ['c', 'c11', 'cpp', 'cmake']
+on_event = 'InsertEnter'
 hook_source = '''
 let g:deoplete#sources#clang#libclang_path = '/opt/local/libexec/llvm-5.0/lib/libclang.dylib'
 let g:deoplete#sources#clang#clang_header = '/opt/local/libexec/llvm-5.0/lib/clang'
@@ -52,7 +50,7 @@ let g:deoplete#sources#clang#clang_header = '/opt/local/libexec/llvm-5.0/lib/cla
 repo = 'zchee/deoplete-jedi'
 depends = 'deoplete.nvim'
 on_ft = ['python','py']
-on_i = 1
+on_event = 'InsertEnter'
 hook_source = '''
 let g:deoplet#sources#jedi#python_path = '/opt/local/bin/python3.6'
 '''
@@ -79,9 +77,9 @@ repo = 'scrooloose/nerdtree'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/nerdtree.vim'
 [[plugins]] # NERDTree tabs
 repo = 'jistr/vim-nerdtree-tabs'
-# [[plugins]] # NERDTree highlight
-# repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
-# depends = ['nerdtree']
+[[plugins]] # NERDTree highlight
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+depends = ['nerdtree']
 # hook_post_source = 'source ~/.config/nvim/userautoload/plugins/nerdtree-highlight.vim'
 
 #-----------------
@@ -99,33 +97,33 @@ repo = 'Shougo/neosnippet.vim'
 depends = 'neosnippet-snippets'
 on_i  = 1
 hook_add = 'source ~/.config/nvim/userautoload/plugins/neosnippet.vim'
-# on_ft = 'snippet'
 
 #------------
 # markdown
 #------------
 [[plugins]] # markdown
 repo = 'plasticboy/vim-markdown'
-on_ft = ['markdown','md','mkd']
+on_ft = ['markdown']
 hook_post_source = '''
 let g:vim_markdown_folding_disabled=1
 '''
 [[plugins]] # preview markdown in browser
 repo = 'kannokanno/previm'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/previm.vim'
-on_ft = ['markdown','md','mkd']
+# on_event = 'BufEnter'
+# on_ft = ['markdown']
 [[plugins]] # openbrowser
 repo = 'tyru/open-browser.vim'
-on_ft = ['markdown','md','mkd']
-# hook_source = '''
-# let g:netrw_nogx = 1
-# nmap gx <Plug>(openbrowser-smart-search)
-# vmap gx <Plug>(openbrowser-smart-search)
-# let g:previm_open_cmd = 'open -a Safari'
-# '''
+on_event = 'BufEnter'
+hook_add = '''
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+'''
 [[plugins]] # 表作成 for markdown
 repo = 'dhruvasagar/vim-table-mode'
-on_ft = ['markdown','md','mkd']
+on_ft = ['markdown']
 hook_post_source = '''
 let g:table_mode_corner='|'
 '''
@@ -158,8 +156,8 @@ on_ft = 'toml'
 
 [[plugins]]
 repo  = 'junegunn/limelight.vim'
-hook_add=' source ${HOME}/.config/nvim/userautoload/plugins/limelight.vim'
+hook_add=' source ~/.config/nvim/userautoload/plugins/limelight.vim'
 [[plugins]]
 repo  = 'junegunn/goyo.vim'
-hook_add=' source ${HOME}/.config/nvim/userautoload/plugins/goyo.vim'
+hook_add=' source ~/.config/nvim/userautoload/plugins/goyo.vim'
 

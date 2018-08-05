@@ -11,7 +11,7 @@ case ${UID} in
     PROMPT_USER="%{${fg[red]}%}%#%{${reset_color}%}"
     ;;
   *) # other
-    PROMPT_USER="%{${fg[white]}%}%#%{${reset_color}%}"
+    PROMPT_USER="%{${fg[green]}%}%#%{${reset_color}%}"
     ;;
 esac
 if [ -n "${REMOTEHOST}${SSH_CONNECTION}" ]; then
