@@ -9,19 +9,7 @@ fun! Dark(scheme)
   if a:scheme == 'molokai'
     "--- molokai
     colors molokai
-    "{{{ color settings for molokai
-    " hi endofbuffer ctermbg=none guibg=none
-    hi visual guibg=#3e4452
-    hi matchparen guibg=#e6da73
-    hi vertsplit guibg=none
-    hi gitgutteradddefault guibg=none
-    hi gitgutterchangedefault guibg=none
-    hi gitgutterdeletedefault guibg=none
-    hi gitgutteraddinvisible guibg=none
-    hi gitgutterchangeinvisible guibg=none
-    hi gitgutterdeleteinvisible guibg=none
     call BGTransparency()
-    "}}}
   elseif a:scheme == 'solarized'
     "--- solarized
     colors solarized8_dark
@@ -90,10 +78,17 @@ endf
 com! -nargs=* SelectColorScheme call SelectColorScheme(<f-args>)
 
 fun! BGTransparency()
-  hi normal ctermbg=none guibg=none
-  hi nontext ctermbg=none guibg=none
-  hi linenr ctermbg=none guibg=none
-  hi specialkey ctermbg=none guibg=none
+  hi NORMAL                   ctermbg=NONE guibg=NONE
+  hi NONTEXT                  ctermbg=NONE guibg=NONE
+  hi LINENR                   ctermbg=NONE guibg=NONE
+  hi SPECIALKEY               ctermbg=NONE guibg=NONE
+  hi VERTSPLIT                ctermbg=NONE guibg=NONE
+  hi GITGUTTERADDDEFAULT      ctermbg=NONE guibg=NONE
+  hi GITGUTTERCHANGEDEFAULT   ctermbg=NONE guibg=NONE
+  hi GITGUTTERDELETEDEFAULT   ctermbg=NONE guibg=NONE
+  hi GITGUTTERADDINVISIBLE    ctermbg=NONE guibg=NONE
+  hi GITGUTTERCHANGEINVISIBLE ctermbg=NONE guibg=NONE
+  hi GITGUTTERDELETEINVISIBLE ctermbg=NONE guibg=NONE
 endf
 
 fun! Google(...)

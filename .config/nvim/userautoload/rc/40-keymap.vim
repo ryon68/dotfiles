@@ -11,7 +11,7 @@ no s <Nop>
 nno <Leader>w :<C-u>w<CR><Esc>
 nno <Leader>q :<C-u>q<CR><Esc>
 " lead settings
-nno <Leader>l :<C-u>source ~/.config/nvim/init.vim<CR>
+nno <Leader>l :<C-u>source ~/.config/nvim/init.vim<CR>:call BGTransparency()<CR>
 " lead changing
 nno <Leader>r :<C-u>e!<CR>
 " all indent

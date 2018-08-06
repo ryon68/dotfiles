@@ -14,7 +14,7 @@ source "$HOME/.fzf/shell/key-bindings.zsh"
 
 export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
 export FZF_CTRL_T_OPTS="--select-1 --exit-0"
-export FZF_DEFAULT_OPTS='--reverse --ansi'
+export FZF_DEFAULT_OPTS='--reverse --ansi --height 40% --border'
 FZF_DEFAULT_OPTS+=$FZF_MOLOKAI
 
 # fzf functions

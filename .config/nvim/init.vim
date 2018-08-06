@@ -42,6 +42,7 @@ if has('nvim')
   runtime! userautoload/rc/*.vim
   "execute 'source $HOME/.config/nvim/userautoload/rc/option.vim'
 else
+  " runtime! userautoload/rc/*.vim
   " set rtp+=$HOME/.config/nvim/userautoload/rc/
   fun! s:load_rc(file)
     let s:rc_file = expand(s:rc_dir . '/' . a:file . '.vim')
@@ -50,11 +51,11 @@ else
     endif
   endf
 
-  call s:load_rc('option')
-  call s:load_rc('func')
-  call s:load_rc('autocmd')
-  call s:load_rc('keymap')
-  call s:load_rc('visual')
+  call s:load_rc('10-option')
+  call s:load_rc('20-func')
+  call s:load_rc('30-autocmd')
+  call s:load_rc('40-keymap')
+  call s:load_rc('50-visual')
 endif
 "--------------------------------------------------
 " dein settings

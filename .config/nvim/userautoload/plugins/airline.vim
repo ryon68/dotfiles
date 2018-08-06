@@ -45,6 +45,10 @@ let g:airline_mode_map = {
       \ '' : 'S-B',
       \ 't'  : 'T',
       \}
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 
 " let g:airline#extensions#branch#enabled = 0
 " let g:airline#extensions#hunks#enabled = 0
@@ -54,7 +58,7 @@ let g:airline_mode_map = {
 " \ ' %{airline#extensions#hunks#get_hunks()} %{airline#extensions#branch#get_head()}'
 " let g:airline_section_c = '%< %f'
 " let g:airline_section_x = '%{&filetype}'
-let g:airline_section_z ='%3p%% %3l:%2v'
+" let g:airline_section_z ='%3p%% %3l:%2v'
 let g:airline_section_error = '%{airline#extensions#ale#get_error()}'
 let g:airline_section_warning = ' %{airline#extensions#ale#get_warning()}'
 

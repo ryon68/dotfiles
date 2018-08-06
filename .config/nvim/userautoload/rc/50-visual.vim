@@ -23,7 +23,6 @@ endif
 "   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " endif
 
-if has('nvim')
 "set colorscheme func SelectColorScheme('dark/light','scheme_name')
 call SelectColorScheme('dark','molokai')
 " call SelectColorScheme('dark','solarized')
@@ -34,14 +33,9 @@ call SelectColorScheme('dark','molokai')
 " call SelectColorScheme('light','solarized')
 " call SelectColorScheme('light','snow')
 " let g:airline_theme = 'papercolor'
-else
-  autocmd VimEnter * let g:airline_theme='deus'
-  " let g:airline_theme='deus'
-  autocmd VimEnter * colorscheme molokai
-endif
 
 " 記号を ASCII 文字の2倍の幅にする
-set ambiwidth=double
+" set ambiwidth=double
 " ルーラーを表示
 set ruler
 " 行番号を表示

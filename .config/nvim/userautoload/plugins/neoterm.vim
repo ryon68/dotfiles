@@ -36,4 +36,4 @@ tno <silent><C-d> <C-\><C-n>:Tclose<CR>
 " tno <silent><C-g> <C-\><C-n>:Tclose<CR>
 " nno <silent><C-c> <C-\><C-n>:Tclose<CR>
 
-tno <silent><C-x> <C-\><C-n><C-w>k
+tno <silent><C-w> <C-\><C-n><C-w>

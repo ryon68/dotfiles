@@ -7,7 +7,7 @@
 set rtp+=$HOME/.fzf/bin/fzf
 
 " tag file
-set tag+=~/.tags,./.tags
+set tags+=~/.tags,./.tags
 
 "{{{ Searching
 set incsearch   " インクリメンタルサーチ. １文字入力毎に検索を行う
