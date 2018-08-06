@@ -69,12 +69,15 @@ if has('persistent_undo')
   set undofile
 endif
 
-" Completion
-set wildmenu wildignorecase wildmode=list,full " コマンドモードの補完
+"{{{ Completion
+set wildmenu
+set wildignorecase
+set wildmode=list,full " コマンドモードの補完
 set history=5000                        " 保存するコマンド履歴の数
 " preview
 " set cot=menuone
 set completeopt-=preview
+"}}}
 
 " マウス設定
 set mouse=a

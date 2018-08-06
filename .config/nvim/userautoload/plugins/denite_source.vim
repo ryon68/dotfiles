@@ -39,8 +39,8 @@ call denite#custom#source(
       \ ['matcher/fuzzy', 'matcher/project_files', 'matcher/ignore_globs'])
 if has('nvim')
 call denite#custom#source('grep', 'matchers',
-        \ ['matcher/fuzzy'])
-        " \ ['matcher/cpsm'])
+        \ ['matcher/cpsm'])
+        " \ ['matcher/fuzzy'])
 endif
 
 call denite#custom#source('tag', 'matchers', ['matcher/substring'])
@@ -56,12 +56,6 @@ call denite#custom#map('normal', 'i',
 call denite#custom#map('insert', '<C-[>',
       \ '<denite:enter_mode:normal>', 'noremap')
 " exit denite
-" call denite#custom#map('normal', '<C-c>',
-"       \ '<denite:quit>', 'noremap')
-" call denite#custom#map('insert', '<C-c>',
-"       \ '<denite:quit>', 'noremap')
-" call denite#custom#map('normal', '<C-d>',
-"       \ '<denite:quit>', 'noremap')
 call denite#custom#map('insert', '<C-d>',
       \ '<denite:quit>', 'noremap')
 call denite#custom#map('insert', '<C-g>',
@@ -96,11 +90,20 @@ call denite#custom#map('insert', '<C-r>',
 call denite#custom#map('insert', '<C-x>',
       \ '<denite:change_sorters:sorter/reverse>', 'noremap')
 " quickfix
-" call denite#custom#map('normal', 'r',
-      " \ '<denite:do_action:quickfix>', 'noremap')
+call denite#custom#map('normal', 'r',
+      \ '<denite:do_action:quickfix>', 'noremap')
 " expr
-" call denite#custom#map('insert', ';',
-      " \ 'vimrc#sticky_func()', 'expr')
+call denite#custom#map('insert', ';',
+      \ 'vimrc#sticky_func()', 'expr')
+
+call denite#custom#map('insert', '<BS>',
+      \ '<denite:smart_delete_char_before_caret>', 'noremap')
+call denite#custom#map('insert', '<C-h>',
+      \ '<denite:smart_delete_char_before_caret>', 'noremap')
+
+call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+call denite#custom#var('file/rec/git', 'command',
+      \ ['git', 'ls-files', '-co', '--exclude-standard'])
 
 " Add custom menu
 " let s:menus = {}

@@ -2,6 +2,7 @@
 " My-Functions
 "=================
 
+"{{{ Colorscheme setting
 fun! Dark(scheme)
   "--- select background dark/light
   set background=dark
@@ -90,7 +91,9 @@ fun! BGTransparency()
   hi GITGUTTERCHANGEINVISIBLE ctermbg=NONE guibg=NONE
   hi GITGUTTERDELETEINVISIBLE ctermbg=NONE guibg=NONE
 endf
+"}}}
 
+"{{{ Google
 fun! Google(...)
   let l:cmd = "!open -a Google\\ Chrome \'http://www.google.co.jp/"
   let l:opt = "search?num=100"
@@ -110,8 +113,9 @@ fun! Google(...)
   exe l:cmd
 endf
 command! -nargs=* Google call Google(<f-args>)
+"}}}
 
-
+"{{{ Compile
 fun! CMake(windowwidth, ...)
   let l:command = "cmake"
   if a:0 > 0
@@ -162,7 +166,6 @@ fun! Make(windowwidth, ...)
 endf
 command! -count -nargs=* Make call Make(<count>, <f-args>)
 
-
 fun! Pyplot(...)
   if expand("%:e") == "txt"
     if a:0 == 0
@@ -181,7 +184,6 @@ fun! Pyplot(...)
 endf
 command! -nargs=* Pyplot call Pyplot(<f-args>)
 
-
 fun! Gnuplot()
   if expand("%".":e") == "gp" || expand("%".":e") == "gpi"
     let l:command = "gnuplot ".expand("%")
@@ -193,11 +195,9 @@ fun! Gnuplot()
 endf
 command! -nargs=* Gnuplot call Gnuplot(<f-args>)
 
-
 if executable('pdftotext')
   command! -complete=file -nargs=1 Pdf :r !pdftotext -nopgbrk -layout <q-args> -
 endif
-
 
 fun! Tex()
   if expand("%:e") == "tex"
@@ -221,7 +221,7 @@ fun! Tex()
   endif
 endf
 command! Tex call Tex()
-
+"}}}
 
 " fun! RangeChooser()
 "     let temp = tempname()

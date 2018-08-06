@@ -3,13 +3,13 @@
 #======================
 
 #----------
-# dein
+# Dein
 #----------
 [[plugins]] # plugin管理
 repo = 'Shougo/dein.vim'
 
 #----------
-# vimproc
+# Vimproc
 #----------
 [[plugins]] # 非同期処理
 # name = 'vimproc'
@@ -17,14 +17,14 @@ repo = 'Shougo/vimproc.vim'
 build = 'make'
 
 #-----------
-# devicons
+# Devicons
 #-----------
 [[plugins]] # icons
 repo = 'ryanoasis/vim-devicons'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/devicons.vim'
 
 #-----------
-# airline
+# Airline
 #-----------
 [[plugins]] # airline
 repo = 'vim-airline/vim-airline'
@@ -40,7 +40,7 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 
 #----------
-# neoterm
+# Neoterm
 #----------
 [[plugins]]
 if = 'has("nvim")'
@@ -48,13 +48,13 @@ repo = 'kassio/neoterm'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/neoterm.vim'
 
 #-----------
-# snippets
+# Snippets
 #-----------
 [[plugins]] # スニペット集
 repo = 'Shougo/neosnippet-snippets'
 
 #-------
-# fzf
+# Fzf
 #-------
 [[plugins]] # fzf
 repo = 'junegunn/fzf'
@@ -66,7 +66,7 @@ depends = 'fzf'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/fzf.vim'
 
 #-----------
-# template
+# Template
 #-----------
 [[plugins]] # template
 repo = 'mattn/sonictemplate-vim'
@@ -76,13 +76,31 @@ nno <Leader>s :Template<Space>
 '''
 
 #------------
-# polyglot
+# Polyglot
 #------------
 [[plugins]] # polyglot
 repo  = 'sheerun/vim-polyglot'
 
 #--------------
-# colorscheme
+# Easy-align
+#--------------
+[[plugins]] # easy-align
+repo = 'junegunn/vim-easy-align'
+hook_add= '''
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+'''
+
+#--------------
+# Surround
+#--------------
+[[plugins]] # surround
+repo = "tpope/vim-surround"
+[[plugins]] # repeat
+repo  = 'tpope/vim-repeat'
+
+#--------------
+# Colorscheme
 #--------------
 [[plugins]]
 repo = 'tomasr/molokai'
@@ -97,17 +115,10 @@ repo = 'aereal/vim-colors-japanesque'
 [[plugins]]
 repo = 'nightsense/snow'
 
+#--------------
+# Operator
+#--------------
+# [[plugins]]
+# repo = 'kana/vim-operator-user'
+
 #-------------------------------------------
-
-[[plugins]] # easy-align
-repo = 'junegunn/vim-easy-align'
-hook_add= '''
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
-'''
-
-[[plugins]] # surround
-repo = "tpope/vim-surround"
-[[plugins]] # repeat
-repo  = 'tpope/vim-repeat'
-

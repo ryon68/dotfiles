@@ -3,7 +3,7 @@
 #========================
 
 #----------------
-# denite
+# Denite
 #----------------
 [[plugins]] # denite
 if = '''has('nvim')'''
@@ -15,17 +15,19 @@ hook_post_source = 'source ~/.config/nvim/userautoload/plugins/denite_source.vim
 repo = 'Shougo/neomru.vim'
 on_source = 'denite.nvim'
 on_path = '.*'
-# hook_add = '''
-# let g:neomru#follow_links = 1
-# '''
-# [[plugins]] # Yank
-# repo = 'Shougo/neoyank.vim'
-# [[plugins]]
-# repo = 'nixprime/cpsm'
-# build = 'env PY3=ON ./install.sh'
+hook_add = '''
+let g:neomru#follow_links = 1
+'''
+[[plugins]] # Yank
+repo = 'Shougo/neoyank.vim'
+on_event = 'TextYankPost'
+on_source = ['denite.nvim']
+[[plugins]]
+repo = 'nixprime/cpsm'
+build = 'env PY3=ON ./install.sh'
 
 #--------------
-# 補完
+# Completion
 #--------------
 [[plugins]] # deoplete
 if = '''has('nvim')'''
@@ -55,6 +57,10 @@ hook_source = '''
 let g:deoplet#sources#jedi#python_path = '/opt/local/bin/python3.6'
 '''
 
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+
 #--------------
 # Ale
 #--------------
@@ -63,7 +69,7 @@ repo = 'w0rp/ale'
 hook_add  = 'source ~/.config/nvim/userautoload/plugins/ale.vim'
 
 #-------------
-# quickrun
+# Quickrun
 #-------------
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -90,16 +96,17 @@ repo = 'majutsushi/tagbar'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/tagbar.vim'
 
 #------------
-# snippet
+# Snippet
 #------------
 [[plugins]] # neosnippet
 repo = 'Shougo/neosnippet.vim'
 depends = 'neosnippet-snippets'
-on_i  = 1
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/neosnippet.vim'
 
 #------------
-# markdown
+# Markdown
 #------------
 [[plugins]] # markdown
 repo = 'plasticboy/vim-markdown'
@@ -112,6 +119,8 @@ repo = 'kannokanno/previm'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/previm.vim'
 # on_event = 'BufEnter'
 # on_ft = ['markdown']
+on_cmd = 'PrevimOpen'
+depends = 'open-browser.vim'
 [[plugins]] # openbrowser
 repo = 'tyru/open-browser.vim'
 on_event = 'BufEnter'
@@ -128,8 +137,9 @@ hook_post_source = '''
 let g:table_mode_corner='|'
 '''
 
-#-------------------------------------------
-
+#---------------
+# Comment out
+#---------------
 [[plugins]] #  comment-out
 repo = 'tomtom/tcomment_vim'
 hook_add = 'source ~/.config/nvim/userautoload/plugins/tcomment.vim'
@@ -143,6 +153,9 @@ hook_post_source = '''
 set helplang=ja,en
 '''
 
+#-----------------
+# Window resize
+#-----------------
 [[plugins]] # サイズ変更
 repo = 'simeji/winresizer'
 hook_add = '''
@@ -150,10 +163,16 @@ nno <C-E> <Nop>
 nno <C-E> :WinResizerStartResize<CR>
 '''
 
-[[plugins]] # Toml syntax
+#-----------------
+# Toml syntax
+#-----------------
+[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = 'toml'
 
+#-----------------
+# Goyo
+#-----------------
 [[plugins]]
 repo  = 'junegunn/limelight.vim'
 hook_add=' source ~/.config/nvim/userautoload/plugins/limelight.vim'
@@ -161,3 +180,18 @@ hook_add=' source ~/.config/nvim/userautoload/plugins/limelight.vim'
 repo  = 'junegunn/goyo.vim'
 hook_add=' source ~/.config/nvim/userautoload/plugins/goyo.vim'
 
+#-----------------
+# Surround
+#-----------------
+# [[plugins]]
+# repo = 'rhysd/vim-operator-surround'
+# depends = 'vim-operator-user'
+# on_map = {n = '<Plug>'}
+# hook_add = '''
+#   nmap <silent>sa <Plug>(operator-surround-append)a
+#   nmap <silent>sd <Plug>(operator-surround-delete)a
+#   nmap <silent>sr <Plug>(operator-surround-replace)a
+#   nmap <silent>sc <Plug>(operator-surround-replace)a
+# '''
+
+#-------------------------------------------

@@ -1,6 +1,5 @@
 setl path+=/opt/local/include/gcc/c++
 setl path+=/opt/local/include/boost
-setl tags+=~/cpp.tags
 setl tabstop=4
 setl shiftwidth=4
 setl noexpandtab

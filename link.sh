@@ -13,15 +13,16 @@ do
   [ "$f" = ".git" ] && continue
   [ "$f" = ".gitignore" ] && continue
   [ "$f" = ".config" ] && continue
-  ln -snfv "${DOT_DIRECTORY}"/"${f}" "${HOME}"/"${f}"
-  # echo "ln -snfv "${DOT_DIRECTORY}"/"${f}" "${HOME}"/"${f}""
+  # ln -snfv "${DOT_DIRECTORY}"/"${f}" "${HOME}"/"${f}"
+  echo "ln -snfv "${DOT_DIRECTORY}"/"${f}" "${HOME}"/"${f}""
 done
 
 echo "link .config directory dotfiles"
 cd "${DOT_DIRECTORY}"/"${DOT_CONFIG_DIRECTORY}"
 for f in ??*
 do
-  ln -snfv "${DOT_DIRECTORY}"/"${DOT_CONFIG_DIRECTORY}"/"${f}" "${HOME}"/"${DOT_CONFIG_DIRECTORY}"/"${f}"
+  # ln -snfv "${DOT_DIRECTORY}"/"${DOT_CONFIG_DIRECTORY}"/"${f}" "${HOME}"/"${DOT_CONFIG_DIRECTORY}"/"${f}"
+  echo "ln -snfv "${DOT_DIRECTORY}"/"${DOT_CONFIG_DIRECTORY}"/"${f}" "${HOME}"/"${DOT_CONFIG_DIRECTORY}"/"${f}""
 done
 
 echo "linked dotfiles complete!"

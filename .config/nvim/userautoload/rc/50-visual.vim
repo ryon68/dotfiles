@@ -62,7 +62,8 @@ set helpheight=999 " ヘルプを画面いっぱいに開く
 " Cursor line
 set whichwrap=b,s,h,l,<,>,[,]  " 行頭行末の左右移動で行をまたぐ
 set cursorline                 " カーソル行の背景色を変える
-"set cursorcolumn              " カーソル位置のカラムの背景色を変える
+" set cursorcolumn              " カーソル位置のカラムの背景色を変える
+" set colorcolumn=80            " N行目に線を引く
 set virtualedit=onemore        " 行末の1文字先までカーソルを移動できるように
 
 " エラービープ音の全停止

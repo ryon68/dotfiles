@@ -5,6 +5,8 @@ DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 
 .DEFAULT_GOAL := help
 
+.PHONY: all list deploy update clean help
+
 all:
 
 list: ## Show dotfiles in this repo

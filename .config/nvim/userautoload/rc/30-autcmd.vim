@@ -39,3 +39,8 @@ if &ft != 'markdown'
   autocmd BufWritePre *.{c,h,cpp,cc,py,pl,vim,toml} :%s/\s\+$//e
 endif
 
+augroup geant-format
+  autocmd!
+  au BufRead,BufNewFile *.{cc,hh} exe 'source ~/.config/nvim/after/indent/cc.vim'
+augroup END
+
