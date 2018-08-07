@@ -4,3 +4,4 @@ history/
 tmp/
 plugin/
 .zcompcache/
+make.sh
