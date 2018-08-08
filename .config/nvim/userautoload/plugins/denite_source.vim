@@ -47,6 +47,10 @@ call denite#custom#source('tag', 'matchers', ['matcher/substring'])
 call denite#custom#source('file/old', 'converters',
       \ ['converter/relative_word'])
 
+call denite#custom#alias('source', 'file/rec/git', 'file/rec')
+call denite#custom#var('file/rec/git', 'command',
+      \ ['git', 'ls-files', '-co', '--exclude-standard'])
+
 "--------------------------
 " key mappings for denite
 "--------------------------
@@ -101,9 +105,6 @@ call denite#custom#map('insert', '<BS>',
 call denite#custom#map('insert', '<C-h>',
       \ '<denite:smart_delete_char_before_caret>', 'noremap')
 
-call denite#custom#alias('source', 'file/rec/git', 'file/rec')
-call denite#custom#var('file/rec/git', 'command',
-      \ ['git', 'ls-files', '-co', '--exclude-standard'])
 
 " Add custom menu
 " let s:menus = {}
