@@ -12,6 +12,9 @@ for src in ${ZDOTDIR}/zshrc/*.zsh; do
     source $src
 done
 
+# zsh起動時にtmux起動
+[[ -z "$TMUX" && ! -z "$PS1" ]] && exec tmux
+
 # fzf
 [ -f ${HOME}/.fzf.`basename $SHELL` ] && source ${HOME}/.fzf.`basename $SHELL`
 
