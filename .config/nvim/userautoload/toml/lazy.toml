@@ -141,8 +141,12 @@ let g:table_mode_corner='|'
 # Comment out
 #---------------
 [[plugins]] #  comment-out
-repo = 'tomtom/tcomment_vim'
-hook_add = 'source ~/.config/nvim/userautoload/plugins/tcomment.vim'
+repo = 'scrooloose/nerdcommenter'
+hook_add = 'source ~/.config/nvim/userautoload/plugins/nerdcommenter.vim'
+on_event = 'VimEnter'
+# [[plugins]] #  comment-out
+# repo = 'tomtom/tcomment_vim'
+# hook_add = 'source ~/.config/nvim/userautoload/plugins/tcomment.vim'
 
 [[plugins]] # capture vim command results
 repo = 'tyru/capture.vim'

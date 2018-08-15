@@ -1,19 +1,19 @@
 snippet     if
 options     head
 abbr        if () {}
-    if (${1:#:condition}) {
+    if(${1:#:condition}){
         ${0:TARGET}
     }
 
 snippet else
 options     head
-    else {
+    else{
         ${0:TARGET}
     }
 
 snippet elseif
 options     head
-    else if (${1:#:condition}) {
+    else if(${1:#:condition}){
         ${0:TARGET}
     }
 
@@ -29,28 +29,28 @@ abbr        if () {} else {}
 snippet     for
 options     head
 abbr        for () {}
-    for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++) {
+    for(${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++){
         ${0:#:TARGET}
     }
 
 snippet     while
 options     head
 abbr        while () {}
-    while (${1:#:condition}) {
+    while(${1:#:condition}){
         ${0:TARGET}
     }
 
 snippet     do_while
 options     head
 alias       do
-    do {
+    do{
         ${0:TARGET:code}
-    } while (${1:#:condition});
+    }while (${1:#:condition});
 
 snippet     switch
 options     head
 abbr        switch () {}
-    switch (${1:#:var}) {
+    switch(${1:#:var}){
         case ${2:#:val}:
             ${0:TARGET}
             break;
@@ -60,39 +60,38 @@ snippet     function
 options     head
 alias       func
 abbr        func() {}
-    ${1:void} ${2:#:func_name}(${3:#:args}) {
+    ${1:void} ${2:#:func_name}(${3:#:args}){
         ${0:TARGET}
     }
 
 snippet     struct
 options     head
 abbr        struct {}
-    struct ${1:#:name} {
+    struct ${1:#:name}{
         ${0:TARGET:data}
     };
 
 # Typedef struct
 snippet struct_typedef
 options     head
-    typedef struct ${1:#:name} {
+    typedef struct ${1:#:name}{
         ${0:TARGET:data}
     };
 
 snippet     enum
 options     head
 abbr        enum {}
-    enum ${1:#:name} {
+    enum ${1:#:name}{
         ${0:TARGET}
     };
 
 # hard-tab is necessary; C indent doesn't support this.
 snippet main
 options     head
-	int main(int argc, char const* argv[])
-	{
-		${0:TARGET}
-		return 0;
-	}
+  int main(int argc, char const* argv[]){
+    ${0:TARGET}
+    return 0;
+  }
 
 # #include <...>
 snippet inc
@@ -155,8 +154,7 @@ alias size
 snippet helloworld
 options     head
     #include <stdio.h>
-    int main(int argc, char const* argv[])
-    {
+    int main(int argc, char const* argv[]){
         puts("hello, world!");
         return 0;
     }
@@ -183,3 +181,7 @@ options     head
      *
      * @return   ${4:return type}
      */
+
+
+snippet srand
+  srand((unsigned)time(NULL));

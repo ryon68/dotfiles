@@ -129,7 +129,7 @@ function! s:set_vsearch()
   let @/ = '\V' . substitute(escape(@z, '/\'), '\n', '\\n', 'g')
   call histadd('/',@z)
 endfunction
-nno <silent><ESC><ESC><ESC> :<C-u>nohlsearch<CR><Esc><C-l>
+" nno <silent><ESC><ESC><ESC> :<C-u>nohlsearch<CR><Esc><C-l>
 nno <silent><C-l> :<C-u>nohlsearch<CR><Esc><C-l>
 
 " typo
